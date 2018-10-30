@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get "prices" => "global_prices#index"
   get "clients" => "clients#index"
+  get "agents" => "agents#index"
 end
