@@ -88,8 +88,7 @@ body {
     margin: 0;
     font-family: 'Open Sans', sans-serif !important;
     text-rendering: optimizeSpeed;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: auto;
     line-height: 1.5;
     background-color: #fff;
 }
@@ -324,10 +323,11 @@ textarea {
     cursor: pointer;
     display: inline-block;
     &--sm {
+        line-height: 25px;
         font-size: 15px;
-        border-radius: 5px;
+        padding: 0 15px;
+        border-radius: 15px;
         border: none;
-        padding: .5em 1em;
         cursor: pointer;
     }
 }
@@ -343,18 +343,16 @@ textarea {
         background: #000 !important;
         background: linear-gradient(-180deg, #444444 0%, #000000 90%) !important
     }
-    @at-root #{&}--primary {
-        background-color: #22A9CB !important;
+    &--primary {
+        background-color: #E74C3C !important;
         color: #fff !important;
-        box-shadow: 0 0 35px 5px rgba(0, 0, 0, 0.1);
         transition: all .3s ease-in-out;
         transition-delay: 0s;
         &:hover {
-            background-color: #fff !important;
-            color: #000 !important;
+            background-color: #c73a2c  !important;
         }
     }
-    @at-root #{&}--delete {
+    &--delete {
         background: #fb2424 !important;
         background: linear-gradient(-180deg, #fb2424 0%, #b50000 90%) !important;
         color: #fff !important;
@@ -513,11 +511,9 @@ textarea {
             background-color: #ECF0F1;
             padding: .75em 1em;
             display: inline;
+            margin: 0 0 0 1.5em;
             & svg {
                 color: #E74C3C;
-            }
-            &:first-child {
-                margin-right: .75em;
             }
         }
         & a {
@@ -576,6 +572,65 @@ textarea {
                 }
                 &:not(:last-child) {
                     margin-bottom: .5em;
+                }
+            }
+        }
+    }
+}
+
+.data {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    padding: 3em;
+    &__search {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        & input {
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ECF0F1;
+            padding: 1em .5em;
+            &:active, &:focus {
+                outline: none;
+                border-color: #E74C3C;
+            }
+        }
+    }
+    &__table {
+        width: 100%;
+        padding: 1em;
+        & table {
+            width: 100%;
+            border-collapse: collapse;
+            & thead {
+                border-bottom: 1px solid rgba(231, 76, 60, .5);
+                color: #E74C3C;
+                & th {
+                    text-align: left;
+                }
+            }
+            & tbody {
+                color: #000;
+                tr {
+                    & td {
+                         & button {
+                            display: inline;
+                            & svg {
+                                margin-right: .25em;
+                            }
+                         }
+                         & svg {
+                             margin: 0 .25em;
+                         }
+                    }
+                    &:nth-child(odd) {
+                        background-color: #fff;
+                    }
+                    &:nth-child(even) {
+                        background-color: #eaeaea;
+                    }
                 }
             }
         }

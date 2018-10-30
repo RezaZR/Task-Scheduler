@@ -1,5 +1,4 @@
 //= require_tree .
-
 fullscreen();
 
 function fullscreen() {

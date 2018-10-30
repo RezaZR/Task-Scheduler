@@ -24,9 +24,8 @@ html
 
     = stylesheet_link_tag "application"
 
-    / = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    = javascript_include_tag "https://use.fontawesome.com/releases/v5.4.2/js/all.js"
-    = javascript_include_tag "application", defer: true
+    = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    = javascript_include_tag "https://use.fontawesome.com/releases/v5.4.2/js/all.js", defer: true
     
   body class=("#{controller_name} #{action_name}")
     .container
@@ -36,10 +35,23 @@ html
             .col-2
               .d-flex.justify-content-start
                 .header__img
-                  = image_tag("logo-main.png")
+                  a href="/"
+                    = image_tag("logo-main.png")
             .col-10
               .d-flex.justify-content-end
                 .header__content
+                  a.btn.btn-standard--primary href="/login"
+                    p 
+                      i.fas.fa-user-tie
+                      | Data Klien
+                  a.btn.btn-standard--primary href="/login"
+                    p 
+                      i.fas.fa-user-lock
+                      | Data Agen
+                  a.btn.btn-standard--primary href="/prices"
+                    p 
+                      i.fas.fa-comments-dollar
+                      | Data Harga
                   .header__content__icon
                     i.fas.fa-plus
                   .header__content__icon
@@ -49,3 +61,4 @@ html
                       i.fas.fa-long-arrow-alt-right
                       | Keluar
         = yield
+    = javascript_include_tag "application"
